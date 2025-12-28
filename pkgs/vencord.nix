@@ -7,6 +7,7 @@
   buildWebExtension ? false,
   unstable ? false,
   pnpm_10,
+  fetchPnpmDeps,
   writeShellApplication,
   cacert,
   coreutils,
@@ -16,7 +17,6 @@
   nix-prefetch-github,
   perl,
 }:
-
 let
   stableVersion = "1.13.11";
   stableHash = "sha256-PSA1CD5YMDSNrP6JUEfdqSC1fNXXWHKsu5hCXnoXGCA=";
@@ -45,7 +45,7 @@ stdenv.mkDerivation (finalAttrs: {
       --replace-fail '"@types/react": "18.3.1"' '"@types/react": "19.0.12"'
   '';
 
-  pnpmDeps = pnpm_10.fetchDeps {
+  pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
       pname
       src

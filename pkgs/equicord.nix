@@ -4,6 +4,7 @@
   lib,
   nodejs,
   pnpm_10,
+  fetchPnpmDeps,
   stdenv,
   buildWebExtension ? false,
   writeShellApplication,
@@ -15,7 +16,6 @@
   nix-prefetch-github,
   perl,
 }:
-
 let
   version = "2025-12-23";
   hash = "sha256-ce5n7E+eJLPnj/dUnaaDi4R8kKO4+iOcQgdtOin4NcM=";
@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
     inherit hash;
   };
 
-  pnpmDeps = pnpm_10.fetchDeps {
+  pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_10;
     hash = pnpmDeps;
