@@ -5,6 +5,7 @@
   nodejs,
   pnpm_10,
   fetchPnpmDeps,
+  pnpmConfigHook,
   stdenv,
   buildWebExtension ? false,
   writeShellApplication,
@@ -43,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
     git
     nodejs
     pnpm_10
-    pnpm_10.configHook
+    pnpmConfigHook
   ];
 
   env = {

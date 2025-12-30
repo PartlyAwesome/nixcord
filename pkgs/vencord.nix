@@ -8,6 +8,7 @@
   unstable ? false,
   pnpm_10,
   fetchPnpmDeps,
+  pnpmConfigHook,
   writeShellApplication,
   cacert,
   coreutils,
@@ -61,7 +62,7 @@ stdenv.mkDerivation (finalAttrs: {
     gitMinimal
     nodejs_22
     pnpm_10
-    pnpm_10.configHook
+    pnpmConfigHook
   ];
 
   env = {
