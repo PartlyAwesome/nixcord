@@ -7,8 +7,8 @@
   wrapScript,
 }:
 let
-  userName = cfg.user;
-  userHome = if pkgs.stdenvNoCC.isDarwin then "/Users/${userName}" else "/home/${userName}";
+  userName = config.home.username;
+  userHome = config.home.homeDirectory;
   xdgHome = "${userHome}/.config";
 in
 {
