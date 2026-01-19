@@ -50,7 +50,7 @@ in
         mkFullConfig
         ;
 
-      activationScripts = import ./lib/activation.nix {
+      activationScripts = import ../lib/activation.nix {
         inherit
           lib
           pkgs
